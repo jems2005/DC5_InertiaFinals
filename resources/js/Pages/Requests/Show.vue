@@ -142,18 +142,20 @@
               <button
                 @click="approveRequest"
                 :disabled="adminForm.processing"
-                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 mb-3"
+                class="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 mb-3"
               >
-                {{ adminForm.processing ? 'Processing...' : '✓ Approve Request' }}
+                <Icon v-if="!adminForm.processing" name="check" size="sm" />
+                {{ adminForm.processing ? 'Processing...' : 'Approve Request' }}
               </button>
 
               <!-- Reject Button -->
               <button
                 @click="rejectRequest"
                 :disabled="adminForm.processing"
-                class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
+                class="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
               >
-                {{ adminForm.processing ? 'Processing...' : '✗ Reject Request' }}
+                <Icon v-if="!adminForm.processing" name="x" size="sm" />
+                {{ adminForm.processing ? 'Processing...' : 'Reject Request' }}
               </button>
             </div>
 
@@ -178,8 +180,9 @@
 import { Head, Link, useForm } from '@inertiajs/vue3'
 import AppLayout from '@/Components/AppLayout.vue'
 import StatusBadge from '@/Components/StatusBadge.vue'
+import Icon from '@/Components/Icon.vue'
 
-defineProps({
+const props = defineProps({
   request: Object,
   canManage: Boolean,
 })
@@ -199,10 +202,10 @@ const formatDate = (dateString) => {
 }
 
 const approveRequest = () => {
-  adminForm.patch(route('requests.approve', request.id))
+  adminForm.patch(route('requests.approve', props.request.id))
 }
 
 const rejectRequest = () => {
-  adminForm.patch(route('requests.reject', request.id))
+  adminForm.patch(route('requests.reject', props.request.id))
 }
 </script>

@@ -15,6 +15,9 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         return Inertia::render('Dashboard', [
+            'auth' => [
+                'user' => $request->user(),
+            ],
             'stats' => [
                 'total_items' => InventoryItem::count(),
                 'pending_requests' => InventoryRequest::where('status', 'pending')->count(),

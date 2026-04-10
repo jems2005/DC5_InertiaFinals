@@ -110,8 +110,11 @@ import { Head, Link, useForm } from '@inertiajs/vue3'
 import { computed } from 'vue'
 import AppLayout from '@/Components/AppLayout.vue'
 
-defineProps({
-  items: Array,
+const props = defineProps({
+  items: {
+    type: Array,
+    default: () => [],
+  },
 })
 
 const form = useForm({
@@ -121,7 +124,7 @@ const form = useForm({
 })
 
 const selectedItem = computed(() => {
-  return items.find((item) => item.id == form.item_id)
+  return props.items.find((item) => item.id == form.item_id)
 })
 
 const submitForm = () => {

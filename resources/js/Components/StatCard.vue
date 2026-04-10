@@ -1,26 +1,28 @@
 <template>
   <div
     :class="[
-      'bg-white overflow-hidden shadow rounded-lg p-6',
+      'bg-white overflow-hidden shadow-lg rounded-xl p-6 border-t-4 transition-all duration-300 hover:shadow-xl hover:scale-105 hover:translate-y-[-4px] cursor-pointer',
       colorClasses
     ]"
   >
-    <div class="flex items-center">
-      <div class="flex-shrink-0 text-4xl">
-        {{ icon }}
-      </div>
-      <div class="ml-5 w-0 flex-1">
-        <dl>
-          <dt class="text-sm font-medium text-gray-500 truncate">{{ title }}</dt>
-          <dd>
-            <div class="text-3xl font-bold" :class="textColor">
-              {{ formatNumber(value) }}
-            </div>
-          </dd>
-          <dd v-if="description" class="text-xs text-gray-500 mt-1">
-            {{ description }}
-          </dd>
-        </dl>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center flex-1">
+        <div class="flex-shrink-0">
+          <Icon :name="iconName" size="xl" :class="iconColor" />
+        </div>
+        <div class="ml-6 w-0 flex-1">
+          <dl>
+            <dt class="text-xs font-semibold text-gray-500 uppercase tracking-wide truncate">{{ title }}</dt>
+            <dd>
+              <div class="text-4xl font-black mt-1" :class="textColor">
+                {{ formatNumber(value) }}
+              </div>
+            </dd>
+            <dd v-if="description" class="text-xs text-gray-400 mt-2 leading-relaxed">
+              {{ description }}
+            </dd>
+          </dl>
+        </div>
       </div>
     </div>
   </div>
@@ -28,6 +30,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import Icon from './Icon.vue'
 
 const props = defineProps({
   title: String,
@@ -47,15 +50,34 @@ const formatNumber = (num) => {
 
 const colorClasses = computed(() => {
   const colors = {
-    blue: 'border-l-4 border-blue-500',
-    green: 'border-l-4 border-green-500',
-    yellow: 'border-l-4 border-yellow-500',
-    red: 'border-l-4 border-red-500'
+    blue: 'border-t-blue-500',
+    green: 'border-t-green-500',
+    yellow: 'border-t-yellow-500',
+    red: 'border-t-red-500'
   }
   return colors[props.color]
 })
 
 const textColor = computed(() => {
+  const colors = {
+    blue: 'text-blue-600',
+    green: 'text-green-600',
+    yellow: 'text-yellow-600',
+    red: 'text-red-600'
+  }
+  return colors[props.color]
+})
+
+const iconName = computed(() => {
+  const icons = {
+    package: 'package',
+    clock: 'clock',
+    check: 'check'
+  }
+  return icons[props.icon] || props.icon
+})
+
+const iconColor = computed(() => {
   const colors = {
     blue: 'text-blue-600',
     green: 'text-green-600',

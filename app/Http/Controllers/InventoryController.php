@@ -54,6 +54,8 @@ class InventoryController extends Controller
         ]);
     }
 
+
+
     /**
      * Show the form for editing the specified inventory item.
      */

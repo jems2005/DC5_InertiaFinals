@@ -73,9 +73,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Inventory - view only for employees
-    Route::resource('inventory', InventoryController::class)
-        ->only(['index', 'show']);
+    // Inventory - view only for employees (with numeric constraint to avoid conflicts)
+    Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+    Route::get('/inventory/{item}', [InventoryController::class, 'show'])->where('item', '[0-9]+')->name('inventory.show');
 
     // Requests - create/view for all auth users
     Route::resource('requests', RequestController::class)
@@ -85,8 +85,11 @@ Route::middleware('auth')->group(function () {
 // Admin only routes
 Route::middleware(['auth', 'admin'])->group(function () {
     // Inventory - full CRUD for admins
-    Route::resource('inventory', InventoryController::class)
-        ->except(['index', 'show']);
+    Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
+    Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+    Route::get('/inventory/{item}/edit', [InventoryController::class, 'edit'])->where('item', '[0-9]+')->name('inventory.edit');
+    Route::patch('/inventory/{item}', [InventoryController::class, 'update'])->where('item', '[0-9]+')->name('inventory.update');
+    Route::delete('/inventory/{item}', [InventoryController::class, 'destroy'])->where('item', '[0-9]+')->name('inventory.destroy');
 
     // Request approve/reject
     Route::patch('requests/{request}/approve', [RequestController::class, 'approve'])

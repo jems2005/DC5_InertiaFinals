@@ -8,7 +8,14 @@
     <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
       <!-- Logo/Header -->
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">📦 Inventory System</h1>
+        <div class="flex justify-center mb-4">
+          <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-3 rounded-lg">
+            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4l-8-4m-16 0l8 4m-8-4v10l8 4m0 0l8-4m-8 4V7m16 0v10l-8 4m0 0l-8 4"></path>
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900">Inventory System</h1>
         <p class="text-gray-600 mt-2">Login to your account</p>
       </div>
 

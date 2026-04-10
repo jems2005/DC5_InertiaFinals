@@ -39,6 +39,6 @@ class InventoryItem extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(InventoryRequest::class);
+        return $this->hasMany(InventoryRequest::class, 'item_id');
     }
 }

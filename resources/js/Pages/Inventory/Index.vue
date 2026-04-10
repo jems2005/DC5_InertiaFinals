@@ -16,77 +16,99 @@
           <Link
             v-if="canManage"
             href="/inventory/create"
-            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-2 px-6 rounded-lg transition-all hover:shadow-lg hover:scale-105"
           >
-            + Add Item
+            <Icon name="plus" size="sm" />
+            Add Item
           </Link>
         </div>
 
         <!-- Table -->
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Item Name
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Category
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Quantity
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Unit
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="item in items.data" :key="item.id" class="hover:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  <Link :href="`/inventory/${item.id}`" class="text-blue-600 hover:text-blue-800">
-                    {{ item.name }}
-                  </Link>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                  {{ item.category }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                  <span v-if="item.quantity > 20" class="text-green-600 font-semibold">
-                    {{ item.quantity }}
-                  </span>
-                  <span v-else-if="item.quantity > 5" class="text-yellow-600 font-semibold">
-                    {{ item.quantity }}
-                  </span>
-                  <span v-else class="text-red-600 font-semibold">
-                    {{ item.quantity }}
-                  </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                  {{ item.unit }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
-                  <Link
-                    v-if="canManage"
-                    :href="`/inventory/${item.id}/edit`"
-                    class="text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    v-if="canManage"
-                    @click="deleteItem(item.id)"
-                    class="text-red-600 hover:text-red-800 font-medium"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="bg-white overflow-hidden shadow-lg sm:rounded-xl border border-gray-100">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gradient-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200">
+                <tr>
+                  <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    <span class="inline-flex items-center gap-2">
+                      <Icon name="package" size="sm" class="text-blue-600" />
+                      Item Name
+                    </span>
+                  </th>
+                  <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    <span class="inline-flex items-center gap-2">
+                      <Icon name="tag" size="sm" class="text-purple-600" />
+                      Category
+                    </span>
+                  </th>
+                  <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    <span class="inline-flex items-center gap-2">
+                      <Icon name="chart" size="sm" class="text-orange-600" />
+                      Quantity
+                    </span>
+                  </th>
+                  <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    <span class="inline-flex items-center gap-2">
+                      <Icon name="ruler" size="sm" class="text-pink-600" />
+                      Unit
+                    </span>
+                  </th>
+                  <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr v-for="item in items.data" :key="item.id" class="hover:bg-blue-50 transition-colors duration-150 border-b hover:shadow-sm">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                    <Link :href="`/inventory/${item.id}`" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                      {{ item.name }}
+                    </Link>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full text-xs font-semibold">
+                      {{ item.category }}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    <span v-if="item.quantity > 20" class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1.5 rounded-lg font-bold">
+                      <Icon name="check" size="sm" />
+                      {{ item.quantity }}
+                    </span>
+                    <span v-else-if="item.quantity > 5" class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-lg font-bold">
+                      <Icon name="edit" size="sm" />
+                      {{ item.quantity }}
+                    </span>
+                    <span v-else class="inline-flex items-center gap-2 bg-red-100 text-red-800 px-3 py-1.5 rounded-lg font-bold">
+                      <Icon name="x" size="sm" />
+                      {{ item.quantity }}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">
+                    {{ item.unit }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2 flex">
+                    <Link
+                      v-if="canManage"
+                      :href="`/inventory/${item.id}/edit`"
+                      class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 hover:bg-blue-100 px-3 py-1.5 rounded-lg font-semibold transition-all"
+                    >
+                      <Icon name="edit" size="sm" />
+                      Edit
+                    </Link>
+                    <button
+                      v-if="canManage"
+                      @click="deleteItem(item.id)"
+                      class="inline-flex items-center gap-2 text-red-600 hover:text-red-800 hover:bg-red-100 px-3 py-1.5 rounded-lg font-semibold transition-all"
+                    >
+                      <Icon name="trash" size="sm" />
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <!-- Empty State -->
           <div v-if="items.data.length === 0" class="p-12 text-center">
@@ -97,8 +119,8 @@
         <!-- Pagination -->
         <div v-if="items.last_page > 1" class="mt-6 flex justify-center">
           <nav class="inline-flex space-x-2">
-            <Link
-              v-for="link in items.links"
+              <Link
+              v-for="link in items.links.filter(link => link.url)"
               :key="link.label"
               :href="link.url"
               :class="[
@@ -120,6 +142,7 @@
 import { Head, Link } from '@inertiajs/vue3'
 import { usePage } from '@inertiajs/vue3'
 import AppLayout from '@/Components/AppLayout.vue'
+import Icon from '@/Components/Icon.vue'
 
 defineProps({
   items: Object,
