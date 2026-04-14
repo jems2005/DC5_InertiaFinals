@@ -33,7 +33,7 @@
                 type="text"
                 id="name"
                 placeholder="Enter item name"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 :class="{ 'border-red-500 focus:ring-red-500': form.errors.name }"
               />
               <p v-if="form.errors.name" class="text-red-600 text-sm mt-2 font-medium">
@@ -49,7 +49,7 @@
               <select
                 v-model="form.category"
                 id="category"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 :class="{ 'border-red-500 focus:ring-red-500': form.errors.category }"
               >
                 <option value="Office Supplies">Office Supplies</option>
@@ -74,7 +74,7 @@
                 id="quantity"
                 min="0"
                 placeholder="0"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 :class="{ 'border-red-500 focus:ring-red-500': form.errors.quantity }"
               />
               <p v-if="form.errors.quantity" class="text-red-600 text-sm mt-2 font-medium">
@@ -90,7 +90,7 @@
               <select
                 v-model="form.unit"
                 id="unit"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                class="w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 :class="{ 'border-red-500 focus:ring-red-500': form.errors.unit }"
               >
                 <option value="pcs">Pieces (pcs)</option>

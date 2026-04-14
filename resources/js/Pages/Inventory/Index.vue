@@ -139,7 +139,7 @@
 </template>
 
 <script setup>
-import { Head, Link } from '@inertiajs/vue3'
+import { Head, Link, router } from '@inertiajs/vue3'
 import { usePage } from '@inertiajs/vue3'
 import AppLayout from '@/Components/AppLayout.vue'
 import Icon from '@/Components/Icon.vue'
@@ -151,7 +151,7 @@ defineProps({
 
 const deleteItem = (id) => {
   if (confirm('Are you sure you want to delete this item?')) {
-    Link({ method: 'delete', href: `/inventory/${id}` })
+    router.delete(`/inventory/${id}`)
   }
 }
 </script>

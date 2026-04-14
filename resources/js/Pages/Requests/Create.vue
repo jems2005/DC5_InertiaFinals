@@ -24,7 +24,7 @@
               <select
                 v-model="form.item_id"
                 id="item_id"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 :class="{ 'border-red-500': form.errors.item_id }"
               >
                 <option value="">Choose an item...</option>
@@ -49,7 +49,7 @@
                   id="quantity_requested"
                   placeholder="0"
                   min="1"
-                  class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="flex-1 px-4 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   :class="{ 'border-red-500': form.errors.quantity_requested }"
                 />
                 <span v-if="selectedItem" class="text-gray-600">
@@ -74,7 +74,7 @@
                 id="reason"
                 rows="4"
                 placeholder="Explain why you need this item..."
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 :class="{ 'border-red-500': form.errors.reason }"
               />
               <p v-if="form.errors.reason" class="text-red-600 text-sm mt-1">

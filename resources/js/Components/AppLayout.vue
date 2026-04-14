@@ -1,17 +1,18 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 transition-all">
+    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-indigo-600 transition-all" style="box-shadow: inset 0 -4px 0 0 rgb(79, 70, 229), 0 4px 12px rgba(0,0,0,0.1);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <Link href="/" class="shrink-0 flex items-center gap-3 hover:opacity-80 transition-opacity group">
             <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-2 rounded-lg group-hover:shadow-lg group-hover:scale-110 transition-all">
-              <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4l-8-4m-16 0l8 4m-8-4v10l8 4m0 0l8-4m-8 4V7m16 0v10l-8 4m0 0l-8 4"></path>
+              <!-- Professional warehouse/inventory icon -->
+              <svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L2 7v3h20V7L12 2zm0 2.5l7 3.5H5l7-3.5zM2 10v9a2 2 0 002 2h16a2 2 0 002-2v-9H2zm3 2h3v5H5v-5zm5 0h3v5h-3v-5zm5 0h3v5h-3v-5z"/>
               </svg>
             </div>
-            <span class="text-xl font-black bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">InvSys</span>
+            <span class="text-xl font-black bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</span>
           </Link>
 
           <!-- Desktop Navigation - Only show if authenticated -->
@@ -117,17 +118,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300 mt-12 py-12 border-t-4 border-gradient-to-r from-blue-600 to-indigo-600">
+    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300 mt-12 py-12 border-t-4 border-indigo-600" style="box-shadow: inset 0 4px 0 0 rgb(79, 70, 229);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div class="group hover:transform hover:scale-105 transition-all duration-300">
             <h3 class="text-white font-black text-lg mb-3 flex items-center gap-2">
-              <svg class="h-6 w-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4l-8-4m-16 0l8 4m-8-4v10l8 4m0 0l8-4m-8 4V7m16 0v10l-8 4m0 0l-8 4"></path>
+              <svg class="h-6 w-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L2 7v3h20V7L12 2zm0 2.5l7 3.5H5l7-3.5zM2 10v9a2 2 0 002 2h16a2 2 0 002-2v-9H2zm3 2h3v5H5v-5zm5 0h3v5h-3v-5zm5 0h3v5h-3v-5z"/>
               </svg>
-              Inventory System
+              StockFlow
             </h3>
-            <p class="text-sm text-gray-400 leading-relaxed">Manage your inventory efficiently with our modern, intuitive system. Built with Laravel, Vue, and Tailwind CSS.</p>
+            <p class="text-sm text-gray-400 leading-relaxed">Streamline your inventory operations with intelligent stock management. Built with Laravel, Vue 3, and Tailwind CSS.</p>
           </div>
           <div class="group hover:transform hover:scale-105 transition-all duration-300">
             <h3 class="text-white font-black text-lg mb-3 flex items-center gap-2">

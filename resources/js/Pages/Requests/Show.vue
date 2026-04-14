@@ -131,7 +131,7 @@
                   id="admin_note"
                   rows="4"
                   placeholder="Add a note for the requester..."
-                  class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                  class="w-full px-3 py-2 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                 />
                 <p v-if="adminForm.errors.admin_note" class="text-red-600 text-sm mt-1">
                   {{ adminForm.errors.admin_note }}
