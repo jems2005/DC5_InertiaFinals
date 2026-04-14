@@ -4,19 +4,19 @@
     <meta name="keywords" content="inventory, stock management, stockflow, register, signup, account" />
   </Head>
 
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 border-t-4 border-indigo-600">
       <!-- Logo/Header -->
       <div class="text-center mb-8">
         <div class="flex justify-center mb-4">
-          <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-3 rounded-lg transform hover:scale-110 transition-transform">
+          <div class="bg-linear-to-br from-blue-600 to-indigo-700 p-3 rounded-lg transform hover:scale-110 transition-transform">
             <!-- Professional warehouse icon -->
             <svg class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L2 7v3h20V7L12 2zm0 2.5l7 3.5H5l7-3.5zM2 10v9a2 2 0 002 2h16a2 2 0 002-2v-9H2zm3 2h3v5H5v-5zm5 0h3v5h-3v-5zm5 0h3v5h-3v-5z"/>
             </svg>
           </div>
         </div>
-        <h1 class="text-4xl font-black bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</h1>
+        <h1 class="text-4xl font-black bg-linear-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</h1>
         <p class="text-gray-600 mt-2 font-semibold">Intelligent Inventory Management</p>
       </div>
 
@@ -102,7 +102,7 @@
         <button
           type="submit"
           :disabled="form.processing"
-          class="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg mt-2"
+          class="w-full bg-linear-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold py-2.5 px-4 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
         >
           <span v-if="!form.processing">Create Account</span>
           <span v-else class="flex items-center justify-center">

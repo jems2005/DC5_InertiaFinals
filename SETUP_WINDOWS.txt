@@ -1,0 +1,284 @@
+================================================================================
+STOCKFLOW INVENTORY SYSTEM - WINDOWS SETUP (Complete Terminal Prompt)
+================================================================================
+
+This script contains all commands to setup StockFlow on Windows.
+Run commands one at a time in PowerShell or Command Prompt.
+
+No angle brackets or placeholders - just copy and paste!
+
+
+PREREQUISITES (Install these first if you don't have them)
+================================================================================
+
+1. PHP 8.2+ from https://windows.php.net/download/
+2. Composer from https://getcomposer.org/download/
+3. Node.js v18+ from https://nodejs.org/
+4. Git from https://git-scm.com/download/win
+
+After installing, restart your terminal and verify:
+  php --version
+  composer --version
+  node --version
+  npm --version
+  git --version
+
+
+COMPLETE COPY-PASTE SETUP
+================================================================================
+
+Choose your working directory and paste these commands one at a time:
+
+
+1. CLONE THE REPOSITORY
+   ========================================
+   git clone https://github.com/your-username/DC5_InertiaFinals.git
+   cd DC5_InertiaFinals
+
+
+2. INSTALL PHP DEPENDENCIES
+   ========================================
+   composer install
+
+
+3. INSTALL NODE DEPENDENCIES
+   ========================================
+   npm install
+
+
+4. SETUP ENVIRONMENT FILE
+   ========================================
+   copy .env.example .env
+
+   Edit .env and update the database settings:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=stockflow
+   DB_USERNAME=root
+   DB_PASSWORD=your_mysql_password
+
+   (Save the file after editing)
+
+
+5. GENERATE APP KEY
+   ========================================
+   php artisan key:generate
+
+
+6. CREATE MYSQL DATABASE
+   ========================================
+
+   Open MySQL Command Line or MySQL Workbench and run:
+   CREATE DATABASE stockflow;
+
+   OR use PowerShell with MySQL installed:
+   mysql -u root -p -e "CREATE DATABASE stockflow;"
+
+
+7. SETUP DATABASE (Create tables + seed demo data)
+   ========================================
+   php artisan migrate:fresh --seed
+
+
+8. COMPILE FRONTEND ASSETS (Terminal 1)
+   ========================================
+   npm run dev
+
+
+9. START LARAVEL SERVER (Terminal 2 - while npm run dev is running)
+   ========================================
+   php artisan serve
+
+
+10. DONE! OPEN IN BROWSER
+    ========================================
+    http://localhost:8000
+
+
+================================================================================
+DEMO LOGIN CREDENTIALS
+================================================================================
+
+ADMIN ACCOUNT:
+  Email: admin@example.com
+  Password: password
+
+EMPLOYEE ACCOUNTS (any of these):
+  Email: employee1@example.com
+  Password: password
+
+  Email: employee2@example.com
+  Password: password
+
+  Email: employee3@example.com
+  Password: password
+
+  Email: employee4@example.com
+  Password: password
+
+  Email: employee5@example.com
+  Password: password
+
+
+================================================================================
+TWO-TERMINAL SETUP (Important!)
+================================================================================
+
+Keep these two running SIMULTANEOUSLY during development:
+
+TERMINAL 1 - Frontend compiler (auto-rebuilds Vue components):
+  npm run dev
+
+TERMINAL 2 - Laravel server:
+  php artisan serve
+
+To open a new PowerShell/Command Prompt:
+  Windows 10/11: Win + Shift + X, then select "Windows PowerShell"
+  OR: Right-click folder, select "Open in Terminal"
+
+
+================================================================================
+VERIFY INSTALLATION
+================================================================================
+
+After both terminals are running:
+1. Go to http://localhost:8000
+2. Click "Login"
+3. Use credentials above
+4. You should see Dashboard, Inventory, and Requests
+
+
+================================================================================
+QUICK REFERENCE - IMPORTANT COMMANDS
+================================================================================
+
+Reset Database (WARNING: Deletes all data, recreates with demo data):
+  php artisan migrate:fresh --seed
+
+Clear Cache:
+  php artisan cache:clear
+
+Rebuild Frontend:
+  npm run build
+
+Interactive PHP Shell (testing):
+  php artisan tinker
+
+View Laravel Logs:
+  type storage\logs\laravel.log
+
+Stop Laravel Server:
+  Press Ctrl+C in Terminal 2
+
+Stop npm compiler:
+  Press Ctrl+C in Terminal 1
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ERROR: "php is not recognized"
+→ Install PHP from https://windows.php.net/
+→ Add PHP to Windows PATH
+→ Restart terminal
+
+ERROR: "composer is not recognized"
+→ Install Composer from https://getcomposer.org/download/
+→ Restart terminal
+
+ERROR: "npm is not recognized"
+→ Install Node.js from https://nodejs.org/
+→ Restart terminal
+
+ERROR: "Port 8000 is already in use"
+→ Run on different port:
+  php artisan serve --port=8001
+→ Then visit http://localhost:8001
+
+ERROR: "No application encryption key"
+→ You missed step 5
+→ Run: php artisan key:generate
+
+ERROR: "Table already exists"
+→ You're trying to migrate twice
+→ Just continue, nothing is broken
+
+ERROR: Assets not loading (blank page)
+→ Make sure Terminal 1 (npm run dev) is still running
+→ If stopped, run: npm run dev again
+
+ERROR: "Could not find a matching version"
+→ Run: npm cache clean --force
+→ Then: npm install
+
+
+================================================================================
+PRODUCTION BUILD (When ready to deploy)
+================================================================================
+
+Instead of "npm run dev", use:
+  npm run build
+
+This creates optimized production assets in public/build/
+
+
+================================================================================
+ADDITIONAL USEFUL COMMANDS
+================================================================================
+
+View all database tables:
+  php artisan tinker
+  DB::select('SELECT * FROM information_schema.tables WHERE table_schema = "stockflow"')
+
+Create new user manually:
+  php artisan tinker
+  User::create(['name' => 'John', 'email' => 'john@example.com', 'password' => bcrypt('password'), 'role' => 'employee'])
+
+Export database (SQLite):
+  Just backup the file: database\database.sqlite
+
+
+================================================================================
+FILE STRUCTURE REFERENCE
+================================================================================
+
+DC5_InertiaFinals/
+├── app/                    (Laravel PHP code)
+├── resources/
+│   ├── js/Pages/          (Vue 3 components)
+│   ├── css/               (Tailwind styles)
+├── database/
+│   ├── migrations/        (Database structure)
+│   └── seeders/           (Demo data)
+├── routes/                (URL routes)
+├── storage/               (Logs, uploads)
+├── .env                   (Configuration - KEEP SECRET!)
+├── composer.json          (PHP dependencies)
+├── package.json           (Node dependencies)
+├── vite.config.js         (Build config)
+└── artisan                (Laravel CLI tool)
+
+
+================================================================================
+NEED HELP?
+================================================================================
+
+Laravel Docs: https://laravel.com/docs
+Inertia.js Docs: https://inertiajs.com
+Vue 3 Docs: https://vuejs.org
+Tailwind Docs: https://tailwindcss.com
+
+If all else fails, run these cleanup commands and start over:
+  composer install --no-cache
+  npm cache clean --force
+  npm install
+  php artisan migrate:fresh --seed
+  npm run dev
+  php artisan serve
+
+
+================================================================================
+HAPPY CODING! 🚀
+================================================================================

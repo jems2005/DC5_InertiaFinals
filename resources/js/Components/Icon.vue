@@ -106,6 +106,13 @@
       <rect x="14" y="14" width="7" height="7"></rect>
       <rect x="3" y="14" width="7" height="7"></rect>
     </g>
+
+    <!-- Alert Icon (Triangle with Exclamation) -->
+    <g v-if="name === 'alert'">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3.05h16.94a2 2 0 0 0 1.71-3.05l-8.47-14.14a2 2 0 0 0-3.42 0z"></path>
+      <line x1="12" y1="9" x2="12" y2="13"></line>
+      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+    </g>
   </svg>
 </template>
 

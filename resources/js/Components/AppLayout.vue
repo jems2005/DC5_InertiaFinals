@@ -1,18 +1,18 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+  <div class="min-h-screen bg-linear-to-b from-gray-50 to-gray-100">
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-indigo-600 transition-all" style="box-shadow: inset 0 -4px 0 0 rgb(79, 70, 229), 0 4px 12px rgba(0,0,0,0.1);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <Link href="/" class="shrink-0 flex items-center gap-3 hover:opacity-80 transition-opacity group">
-            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-2 rounded-lg group-hover:shadow-lg group-hover:scale-110 transition-all">
+            <div class="bg-linear-to-br from-blue-600 to-indigo-700 p-2 rounded-lg group-hover:shadow-lg group-hover:scale-110 transition-all">
               <!-- Professional warehouse/inventory icon -->
               <svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L2 7v3h20V7L12 2zm0 2.5l7 3.5H5l7-3.5zM2 10v9a2 2 0 002 2h16a2 2 0 002-2v-9H2zm3 2h3v5H5v-5zm5 0h3v5h-3v-5zm5 0h3v5h-3v-5z"/>
               </svg>
             </div>
-            <span class="text-xl font-black bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</span>
+            <span class="text-xl font-black bg-linear-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</span>
           </Link>
 
           <!-- Desktop Navigation - Only show if authenticated -->
@@ -36,7 +36,7 @@
               v-if="$page.props.auth?.user?.role === 'admin'"
               :href="route('inventory.create')"
               label="Add Item"
-              class="!bg-gradient-to-r !from-blue-600 !to-indigo-600 !text-white !shadow-lg"
+              class="bg-linear-to-r! from-blue-600! to-indigo-600! text-white! shadow-lg!"
             />
           </div>
 
@@ -118,7 +118,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300 mt-12 py-12 border-t-4 border-indigo-600" style="box-shadow: inset 0 4px 0 0 rgb(79, 70, 229);">
+    <footer class="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300 mt-12 py-12 border-t-4 border-indigo-600" style="box-shadow: inset 0 4px 0 0 rgb(79, 70, 229);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div class="group hover:transform hover:scale-105 transition-all duration-300">

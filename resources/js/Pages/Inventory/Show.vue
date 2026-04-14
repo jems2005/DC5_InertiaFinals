@@ -76,7 +76,7 @@
           </div>
 
           <!-- Stock Status Card -->
-          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg overflow-hidden border border-blue-200">
+          <div class="bg-linear-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg overflow-hidden border border-blue-200">
             <div class="p-8">
               <h3 class="text-lg font-bold text-gray-900 mb-6">Stock Status</h3>
 

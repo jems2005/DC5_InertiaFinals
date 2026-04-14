@@ -19,7 +19,7 @@
           </div>
           <Link
             href="/requests/create"
-            class="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-2 px-6 rounded-lg transition-all hover:shadow-lg hover:scale-105"
+            class="inline-flex items-center gap-2 bg-linear-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-2 px-6 rounded-lg transition-all hover:shadow-lg hover:scale-105"
           >
             <Icon name="plus" size="sm" />
             New Request
@@ -82,7 +82,7 @@
         <div class="bg-white overflow-hidden shadow-lg sm:rounded-xl border border-gray-100">
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gradient-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200">
+              <thead class="bg-linear-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200">
                 <tr>
                   <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                     <span class="inline-flex items-center gap-2">
@@ -165,7 +165,7 @@
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300',
               ]"
-              v-html="link.label"
+              v-text="link.label"
             />
           </nav>
         </div>

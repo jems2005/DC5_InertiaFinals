@@ -1,0 +1,264 @@
+================================================================================
+STOCKFLOW INVENTORY SYSTEM - SETUP INSTRUCTIONS FOR NEW PC
+================================================================================
+
+This is a Laravel + Vue 3 + Inertia.js inventory management system.
+Follow these steps to get it running on a new machine.
+
+
+PREREQUISITES
+================================================================================
+Before you start, ensure you have installed:
+
+1. PHP 8.2 or higher
+   - Verify: php --version
+
+2. Composer (PHP dependency manager)
+   - Verify: composer --version
+   - Download from: https://getcomposer.org
+
+3. Node.js (v18 or higher) and npm
+   - Verify: node --version && npm --version
+   - Download from: https://nodejs.org
+
+4. MySQL/MariaDB or SQLite (for database)
+   - For development, SQLite is simplest (no setup needed)
+   - MySQL: Ensure it's running and you can access it
+
+5. Git (to clone the repository)
+   - Verify: git --version
+
+
+STEP 1: CLONE THE REPOSITORY
+================================================================================
+
+Open your terminal and run:
+
+  git clone <repository-url>
+  cd DC5_InertiaFinals
+
+
+STEP 2: INSTALL PHP DEPENDENCIES
+================================================================================
+
+Run Composer to install all Laravel dependencies:
+
+  composer install
+
+This will create a 'vendor' folder and install all required packages.
+
+
+STEP 3: INSTALL NODE.JS DEPENDENCIES
+================================================================================
+
+Install JavaScript/frontend dependencies:
+
+  npm install
+
+This will create a 'node_modules' folder with all required JavaScript packages.
+
+
+STEP 4: ENVIRONMENT SETUP
+================================================================================
+
+The project needs a .env file with configuration. Follow these steps:
+
+1. Copy the example environment file:
+   cp .env.example .env
+
+2. Edit the .env file with your MySQL database settings:
+
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=stockflow
+   DB_USERNAME=root
+   DB_PASSWORD=your_password
+STEP 5: CREATE THE DATABASE
+================================================================================
+
+Run the database migrations to create all tables:
+
+  php artisan migrate:fresh --seed
+
+This command will:
+- Create all database tables (users, inventory_items, inventory_requests, etc.)
+- Seed sample data including:
+  * 1 Admin user
+  * 5 Employee users
+  * 19 Inventory items
+  * 5 Sample inventory requests with various statuses
+
+
+STEP 6: COMPILE FRONTEND ASSETS
+================================================================================
+
+Build the Vue.js components and CSS files:
+
+For development (watch mode - rebuilds on file changes):
+  npm run dev
+
+For production (optimized build):
+  npm run build
+
+Note: You can use 'npm run dev' during development to auto-compile as you make changes.
+
+
+STEP 7: START THE DEVELOPMENT SERVER
+================================================================================
+
+In a NEW terminal window, run:
+
+  php artisan serve
+
+This will start the Laravel development server at:
+  http://localhost:8000
+
+The application should now be accessible in your web browser.
+
+
+STEP 8: VERIFY THE INSTALLATION
+================================================================================
+
+1. Open http://localhost:8000 in your browser
+2. You should see the StockFlow Inventory System landing page
+3. Click "Login" to access the application
+
+
+DEMO CREDENTIALS (Pre-seeded accounts)
+================================================================================
+
+ADMIN ACCOUNT:
+  Email: admin@example.com
+  Password: password
+
+EMPLOYEE ACCOUNTS (any of these):
+  Email: employee1@example.com
+  Password: password
+
+  Email: employee2@example.com
+  Password: password
+
+  Email: employee3@example.com
+  Password: password
+
+  Email: employee4@example.com
+  Password: password
+
+  Email: employee5@example.com
+  Password: password
+
+
+APPLICATION FEATURES
+================================================================================
+
+Once logged in, you can:
+
+1. DASHBOARD
+   - View system statistics
+   - See quick action buttons
+   - Monitor inventory and requests
+
+2. INVENTORY MANAGEMENT
+   - /inventory - View all inventory items (paginated)
+   - /inventory/create - Add new items (Admin only)
+   - /inventory/:id - View item details with related requests
+   - /inventory/:id/edit - Edit items (Admin only)
+   - Delete items (Admin only)
+
+3. INVENTORY REQUESTS
+   - /requests - View all requests
+   - /requests/create - Submit new request
+   - /requests/:id - View request details
+   - Approve/Reject requests (Admin only)
+   - Filter requests by status (Pending, Approved, Rejected)
+
+4. USER AUTHENTICATION
+   - Login with role-based access
+   - Register new accounts
+   - Logout
+   - Password reset (configured in code)
+
+
+IMPORTANT NOTES
+================================================================================
+
+1. Database:
+   - First time setup: use 'migrate:fresh --seed' to create tables and demo data
+   - Subsequent times: use 'migrate' to only run new migrations
+   - To reset data: 'migrate:fresh --seed' (deletes all data, creates fresh demo)
+
+2. Frontend Assets:
+   - Keep 'npm run dev' running during development
+   - Use 'npm run build' before deployment
+   - Changes to .vue files will auto-compile if npm run dev is active
+
+3. Laravel Artisan Commands:
+   - 'php artisan tinker' - Interactive shell for testing
+   - 'php artisan cache:clear' - Clear application cache
+   - 'php artisan config:cache' - Cache configuration
+
+4. Permissions:
+   - Ensure 'storage' and 'bootstrap/cache' directories are writable
+   - On Linux/Mac: chmod -R 755 storage bootstrap/cache
+
+
+TROUBLESHOOTING
+================================================================================
+
+Problem: "Class 'App\Http\Controllers\InventoryController' not found"
+Solution: Run 'composer dump-autoload'
+
+Problem: "No application encryption key has been specified"
+Solution: Run 'php artisan key:generate'
+
+Problem: "SQLSTATE[HY000]: General error: 1 table users already exists"
+Solution: Use 'migrate' instead of 'migrate:fresh', or drop tables first
+
+Problem: Port 8000 already in use
+Solution: Run 'php artisan serve --port=8001' (or any other available port)
+
+Problem: npm packages not found
+Solution: Run 'npm install' again, or delete 'node_modules' folder and reinstall
+
+Problem: Assets not compiling
+Solution: Stop npm run dev, run 'npm install', then 'npm run dev' again
+
+
+ADDITIONAL RESOURCES
+================================================================================
+
+Laravel Documentation: https://laravel.com/docs
+Inertia.js Documentation: https://inertiajs.com
+Vue 3 Documentation: https://vuejs.org
+Tailwind CSS Documentation: https://tailwindcss.com
+
+
+QUICK START SUMMARY (Copy-Paste Commands)
+================================================================================
+
+After cloning:
+
+  composer install
+  npm install
+  cp .env.example .env
+  php artisan key:generate
+
+  # If using SQLite:
+  touch database/database.sqlite
+
+  php artisan migrate:fresh --seed
+
+  # In one terminal:
+  npm run dev
+
+  # In another terminal:
+  php artisan serve
+
+Then open: http://localhost:8000 and login with the demo credentials above.
+
+
+================================================================================
+For questions or issues, check the Laravel and Inertia.js documentation first.
+Good luck with StockFlow Inventory System!
+================================================================================

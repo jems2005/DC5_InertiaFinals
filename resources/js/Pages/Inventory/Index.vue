@@ -16,7 +16,7 @@
           <Link
             v-if="canManage"
             href="/inventory/create"
-            class="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-2 px-6 rounded-lg transition-all hover:shadow-lg hover:scale-105"
+            class="inline-flex items-center gap-2 bg-linear-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-2 px-6 rounded-lg transition-all hover:shadow-lg hover:scale-105"
           >
             <Icon name="plus" size="sm" />
             Add Item
@@ -27,7 +27,7 @@
         <div class="bg-white overflow-hidden shadow-lg sm:rounded-xl border border-gray-100">
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gradient-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200">
+              <thead class="bg-linear-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200">
                 <tr>
                   <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                     <span class="inline-flex items-center gap-2">
@@ -71,15 +71,15 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm">
-                    <span v-if="item.quantity > 20" class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1.5 rounded-lg font-bold">
+                    <span v-if="item.quantity > 20" class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1.5 rounded-lg font-bold" title="Good Stock">
                       <Icon name="check" size="sm" />
                       {{ item.quantity }}
                     </span>
-                    <span v-else-if="item.quantity > 5" class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-lg font-bold">
-                      <Icon name="edit" size="sm" />
+                    <span v-else-if="item.quantity > 5" class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-lg font-bold" title="Low Stock - Reorder Soon">
+                      <Icon name="alert" size="sm" />
                       {{ item.quantity }}
                     </span>
-                    <span v-else class="inline-flex items-center gap-2 bg-red-100 text-red-800 px-3 py-1.5 rounded-lg font-bold">
+                    <span v-else class="inline-flex items-center gap-2 bg-red-100 text-red-800 px-3 py-1.5 rounded-lg font-bold" title="Critical Stock">
                       <Icon name="x" size="sm" />
                       {{ item.quantity }}
                     </span>
@@ -129,7 +129,7 @@
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300',
               ]"
-              v-html="link.label"
+              v-text="link.label"
             />
           </nav>
         </div>

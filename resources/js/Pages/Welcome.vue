@@ -4,17 +4,17 @@
     <meta name="keywords" content="inventory management, stock control, warehouse management, request tracking, stockflow" />
   </Head>
 
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+  <div class="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50">
     <!-- Navigation Header -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-2 rounded-lg">
+          <div class="bg-linear-to-br from-blue-600 to-indigo-700 p-2 rounded-lg">
             <svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L2 7v3h20V7L12 2zm0 2.5l7 3.5H5l7-3.5zM2 10v9a2 2 0 002 2h16a2 2 0 002-2v-9H2zm3 2h3v5H5v-5zm5 0h3v5h-3v-5zm5 0h3v5h-3v-5z"/>
             </svg>
           </div>
-          <span class="text-xl font-black bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</span>
+          <span class="text-xl font-black bg-linear-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">StockFlow</span>
         </Link>
         <div class="flex gap-3">
           <Link
@@ -44,7 +44,7 @@
         </div>
         <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
           Smart Inventory<br />
-          <span class="bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">Management System</span>
+          <span class="bg-linear-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">Management System</span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
           Streamline your warehouse operations with real-time stock tracking, intelligent request management, and automated approval workflows. Built for teams that demand efficiency.
@@ -151,7 +151,7 @@
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
         <Link
           href="/login"
-          class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all text-center text-lg"
+          class="bg-linear-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all text-center text-lg block"
         >
           Sign In Now
         </Link>
@@ -170,7 +170,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div class="flex items-center gap-2 mb-4">
-              <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-2 rounded-lg">
+              <div class="bg-linear-to-br from-blue-600 to-indigo-700 p-2 rounded-lg">
                 <svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2L2 7v3h20V7L12 2zm0 2.5l7 3.5H5l7-3.5zM2 10v9a2 2 0 002 2h16a2 2 0 002-2v-9H2zm3 2h3v5H5v-5zm5 0h3v5h-3v-5zm5 0h3v5h-3v-5z"/>
                 </svg>
